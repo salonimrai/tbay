@@ -64,7 +64,7 @@ mike = User(username="Mike", password="1234abc")
 steve = User(username="Steve", password="1234abc")
 carl = User(username="Carl", password="1234abc")
 
-session.add_all(mike, steve, carl)
+session.add_all([mike, steve, carl])
 session.commit()
 
 ##creating items
@@ -77,12 +77,14 @@ session.add(baseball)
 session.commit()
 
 ## adding bids
-bid1 = Bid(10.50)
-bid2 = Bid(20.75)
+bid1 = Bid(1050)
+bid2 = Bid(2075)
 bid3 = Bid(11.30)
 bid4 = Bid(50.9)
-steve.bids_placed.append(bid1, bid2)
-carl.bids_placed.append(bid3, bid4)
+steve.bids_placed.append(bid1)
+steve.bids_placed.append(bid2)
+carl.bids_placed.append(bid3)
+carl.bids_placed.append(bid4)
 
-session.add_all(bid1,bid2,bid3,bid4)
+session.add_all([bid1,bid2,bid3,bid4])
 session.commit()
